@@ -1,0 +1,6 @@
+---
+- name: Get hostname
+  hosts: all
+  tasks:
+   - name: Test Ping
+     ansible.builtin.ping:
