@@ -1,6 +1,6 @@
 ---
 - name: Get hostname
-  hosts: all
+  hosts: devserver
   tasks:
    - name: Test Ping
      ansible.builtin.ping:
