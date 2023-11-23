@@ -1,0 +1,41 @@
+---
+- name: Icx command module
+  hosts: devruckus
+  tasks:
+   - name: Show version
+     community.network.icx_command:
+      commands: show version
+     register: version
+   - name: Show version
+     community.network.icx_command:
+      commands: show running-config
+     register: running
+   - name: Show version
+     community.network.icx_command:
+      commands: show logging
+     register: log
+   - name: Create root Directory
+     ansible.builtin.file:
+      path: ./{{ inventory_hostname }}
+      state: directory
+      mode: "0755"
+   - name: Create log Directory
+     ansible.builtin.file:
+      path: ./{{ inventory_hostname }}/log
+      state: directory
+      mode: "0755"
+   - name: Save output version
+     ansible.builtin.copy:
+      content: "{{ version.stdout | replace('\\n', '\n') }}"
+      dest: "{{ inventory_hostname }}/{{ inventory_hostname }}.ver"
+      mode: "0600"
+   - name: Save running
+     ansible.builtin.copy:
+      content: "{{ running.stdout | replace('\\n', '\n') }}"
+      dest: "{{ inventory_hostname }}/{{ inventory_hostname }}.cfg"
+      mode: "0600"
+   - name: Save Last Log
+     ansible.builtin.copy:
+      content: "{{ log.stdout | replace('\\n', '\n') }}"
+      dest: "{{ inventory_hostname }}/log/{{ inventory_hostname }}{{ lookup('pipe', 'date +%m%d%Y-%H%M') }}.log"
+      mode: "0600"

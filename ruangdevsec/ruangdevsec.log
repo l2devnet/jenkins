@@ -1,0 +1,51 @@
+['Syslog logging: enabled ( 0 messages dropped, 0 flushes, 0 overruns)
+    Buffer logging: level ACDMEINW, 42 messages logged
+    level code: A=alert C=critical D=debugging M=emergency E=error
+                I=informational N=notification W=warning
+
+Static Log Buffer:
+Aug 26 01:26:14:I:System: Stack unit 1   PS 1, Internal Power supply  is up  
+
+Dynamic Log Buffer (4000 lines):
+Aug 26 04:55:24:I:Security: SSH login by super from src IP 10.43.121.202 from src MAC 0c86.1098.e7f0 to PRIVILEGED EXEC mode using RSA as Server Host Key. 
+Aug 26 04:55:24:I:Security: SSH login by super from src IP 10.43.121.202 from src MAC 0c86.1098.e7f0 to USER EXEC mode using RSA as Server Host Key. 
+Aug 26 04:44:31:I:Security: SSH logout by super from src IP 10.43.121.202 from src MAC 0c86.1098.e7f0 from PRIVILEGED EXEC mode using RSA as Server Host Key. 
+Aug 26 04:44:08:I:Security: SSH login by super from src IP 10.43.121.202 from src MAC 0c86.1098.e7f0 to PRIVILEGED EXEC mode using RSA as Server Host Key. 
+Aug 26 04:44:08:I:Security: SSH login by super from src IP 10.43.121.202 from src MAC 0c86.1098.e7f0 to USER EXEC mode using RSA as Server Host Key. 
+Aug 26 03:12:24:I:Security: SSH logout by super from src IP 10.43.121.202 from src MAC 0c86.1098.e7f0 from PRIVILEGED EXEC mode using RSA as Server Host Key. 
+Aug 26 03:12:01:I:Security: SSH login by super from src IP 10.43.121.202 from src MAC 0c86.1098.e7f0 to PRIVILEGED EXEC mode using RSA as Server Host Key. 
+Aug 26 03:12:01:I:Security: SSH login by super from src IP 10.43.121.202 from src MAC 0c86.1098.e7f0 to USER EXEC mode using RSA as Server Host Key. 
+Aug 26 03:10:38:I:Security: SSH access by user admin from src IP 10.43.121.202 rejected, 1 attempt(s) 
+Aug 26 03:10:35:I:Security: SSH access by user admin from src IP 10.43.121.202 rejected, 3 attempt(s) 
+Aug 26 03:10:19:I:Security: SSH access by user admin from src IP 10.43.121.202 rejected, 2 attempt(s) 
+Aug 26 03:10:16:I:Security: SSH access by user admin from src IP 10.43.121.202 rejected, 1 attempt(s) 
+Aug 26 03:10:08:I:Security: SSH access by user admin from src IP 10.43.121.202 rejected, 3 attempt(s) 
+Aug 26 03:09:12:W:Security: too many public key authentication attempts from user 
+Aug 26 03:09:12:I:Security: SSH access by user admin from src IP 10.43.121.202 rejected, 2 attempt(s) 
+Aug 26 03:09:12:I:Security: SSH access by user admin from src IP 10.43.121.202 rejected, 1 attempt(s) 
+Aug 26 01:30:47:I:Security: SSH logout by super from src IP 10.43.125.5 from src MAC 0c86.1098.e7f0 from USER EXEC mode using RSA as Server Host Key. 
+Aug 26 01:30:45:I:Security: SSH logout by super from src IP 10.43.125.5 from src MAC 0c86.1098.e7f0 from PRIVILEGED EXEC mode using RSA as Server Host Key. 
+Aug 26 01:28:46:I:System: Interface ethernet 1/2/1, state down 
+Aug 26 01:28:46:I:STP: VLAN 1 Port 1/2/1 STP State -> DISABLED (PortDown) 
+Aug 26 01:28:46:I:STP: VLAN 1 Port 1/2/1 STP State -> FORWARDING (PortDown) 
+Aug 26 01:27:33:I:COPY COMPLETED
+Aug 26 01:27:33:I:Security: startup-config was changed by super from ssh client 10.43.125.5 
+Aug 26 01:27:33:I:COPY_CONFIGURATION_TO_FLASH
+Aug 26 01:27:31:I:Security: running-config was potentially changed by super from ssh client 10.43.125.5 
+Aug 26 01:27:11:I:VLAN: Id 10 deleted by super from ssh session.
+Aug 26 01:27:06:I:VLAN: Id 705 deleted by super from ssh session.
+Aug 26 01:27:06:I:VLAN: Id 704 deleted by super from ssh session.
+Aug 26 01:26:49:I:STP: VLAN 1 Port 1/2/1 Bridge TC Event (FwdDlyExpiry) 
+Aug 26 01:26:49:I:STP: VLAN 1 Port 1/2/1 STP State -> FORWARDING (FwdDlyExpiry) 
+Aug 26 01:26:45:I:Security: SSH login by super from src IP 10.43.125.5 from src MAC 0c86.1098.e7f0 to PRIVILEGED EXEC mode using RSA as Server Host Key. 
+Aug 26 01:26:36:I:Security: SSH login by super from src IP 10.43.125.5 from src MAC 0c86.1098.e7f0 to USER EXEC mode using RSA as Server Host Key. 
+Aug 26 01:26:34:I:STP: VLAN 1 Port 1/2/1 STP State -> LEARNING (FwdDlyExpiry) 
+Aug 26 01:26:18:I:STP: VLAN 1 Port 1/2/1 STP State -> LISTENING (MakeFwding) 
+Aug 26 01:26:18:I:System: Interface ethernet 1/2/1, state up 
+Aug 26 01:26:18:I:PKI: Trustpoint DEVICE_TRUSTPNT: Successfully loaded Manufacturing certificate file.   
+Aug 26 01:26:15:I:System: Cold start 
+Aug 26 01:26:15:I:System: Interface ethernet mgmt1, state up 
+Aug 26 01:26:14:D:DHCPC: starting dhcp client service on 670 port(s) 
+Aug 26 01:26:14:D:DHCPC: Found static IP address 10.43.40.14 subnet mask 255.255.255.0 on port mgmt1 
+Aug 26 01:26:14:I:Security: running-config was potentially changed by un-authenticated user from console 
+Aug 26 01:26:14:I:System: Stack unit 1   PS 1, Internal Power supply  is up']

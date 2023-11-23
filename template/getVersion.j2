@@ -1,0 +1,14 @@
+- name: Show version
+     community.network.icx_command:
+      commands: show version
+     register: version
+   - name: Create Directory
+     ansible.builtin.file:
+      path: ./{{ inventory_hostname }}
+      state: directory
+      mode: "0755"
+   - name: Save output
+     ansible.builtin.copy:
+      content: "{{ version.stdout | replace('\\n', '\n') }}"
+      dest: "{{ inventory_hostname }}/{{ inventory_hostname }}.ver"
+      mode: "0600"
