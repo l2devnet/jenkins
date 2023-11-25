@@ -2,6 +2,10 @@
 - name: Icx command module
   hosts: devruckus
   tasks:
+   - name: Get local system date
+     ansible.builtin.command: date +"%b %d"
+     register: systemdate
+     changed_when: systemdate.rc != 0
    - name: Show version
      community.network.icx_command:
       commands: show version
@@ -12,7 +16,7 @@
      register: running
    - name: Show version
      community.network.icx_command:
-      commands: show logging
+      commands: show logging | include {{ systemdate.stdout | trim }}
      register: log
    - name: Create root Directory
      ansible.builtin.file:
