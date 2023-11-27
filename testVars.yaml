@@ -1,0 +1,7 @@
+---
+- name: Test
+  hosts: ruangdev
+  tasks:
+    - name: Test var
+      ansible.builtin.debug:
+        msg: "{{ group_names[0] }}"

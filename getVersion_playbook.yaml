@@ -8,16 +8,21 @@
      register: version
    - name: Create root Directory
      ansible.builtin.file:
-      path: /log/{{ inventory_hostname }}
+      path: /log/{{ group_names[0] }}
       state: directory
       mode: "0755"
-   - name: Create log Directory
+   - name: Create Device Directory
      ansible.builtin.file:
-      path: /log/{{ inventory_hostname }}/version
+      path: /log/{{ group_names[0] }}/{{ inventory_hostname }}
+      state: directory
+      mode: "0755"
+   - name: Create version Directory
+     ansible.builtin.file:
+      path: /log/{{ group_names[0] }}/{{ inventory_hostname }}/version
       state: directory
       mode: "0755"
    - name: Save output version
      ansible.builtin.copy:
       content: "{{ version.stdout | replace('\\n', '\n') }}"
-      dest: "/log/{{ inventory_hostname }}/version/{{ inventory_hostname }}{{ lookup('pipe', 'date +%m%d%Y-%H%M') }}.ver"
+      dest: "/log/{{ group_names[0] }}/{{ inventory_hostname }}/version/{{ inventory_hostname }}{{ lookup('pipe', 'date +%m%d%Y-%H%M') }}.ver"
       mode: "0644"

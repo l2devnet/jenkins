@@ -8,16 +8,21 @@
      register: running
    - name: Create root Directory
      ansible.builtin.file:
-      path: /log/{{ inventory_hostname }}
+      path: /log/{{ group_names[0] }}
+      state: directory
+      mode: "0755"
+   - name: Create Group Directory
+     ansible.builtin.file:
+      path: /log/{{ group_names[0] }}/{{ inventory_hostname }}
       state: directory
       mode: "0755"
    - name: Create log Directory
      ansible.builtin.file:
-      path: /log/{{ inventory_hostname }}/config
+      path: /log/{{ group_names[0] }}/{{ inventory_hostname }}/config
       state: directory
       mode: "0755"
    - name: Backup Configuration
      ansible.builtin.copy:
       content: "{{ running.stdout | replace('\\n', '\n') }}"
-      dest: "/log/{{ inventory_hostname }}/config/{{ inventory_hostname }}{{ lookup('pipe', 'date +%m%d%Y-%H%M') }}.cfg"
+      dest: "/log/{{ group_names[0] }}/{{ inventory_hostname }}/config/{{ inventory_hostname }}{{ lookup('pipe', 'date +%m%d%Y-%H%M') }}.cfg"
       mode: "0644"
