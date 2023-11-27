@@ -12,16 +12,21 @@
      register: log
    - name: Create root Directory
      ansible.builtin.file:
-      path: /log/{{ inventory_hostname }}
+      path: /log/{{ group_names[0] }}
+      state: directory
+      mode: "0755"
+   - name: Create device Directory
+     ansible.builtin.file:
+      path: /log/{{ group_names[0] }}/{{ inventory_hostname }}
       state: directory
       mode: "0755"
    - name: Create log Directory
      ansible.builtin.file:
-      path: /log/{{ inventory_hostname }}/log
+      path: /log/{{ group_names[0] }}/{{ inventory_hostname }}/log
       state: directory
       mode: "0755"
    - name: Save Last Log
      ansible.builtin.copy:
       content: "{{ log.stdout | replace('\\n', '\n') }}"
-      dest: "/log/{{ inventory_hostname }}/log/{{ inventory_hostname }}{{ lookup('pipe', 'date +%m%d%Y-%H%M') }}.log"
+      dest: "/log/{{ group_names[0] }}/{{ inventory_hostname }}/log/{{ inventory_hostname }}{{ lookup('pipe', 'date +%m%d%Y-%H%M') }}.log"
       mode: "0644"

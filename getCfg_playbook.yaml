@@ -11,7 +11,7 @@
       path: /log/{{ group_names[0] }}
       state: directory
       mode: "0755"
-   - name: Create Group Directory
+   - name: Create Device Directory
      ansible.builtin.file:
       path: /log/{{ group_names[0] }}/{{ inventory_hostname }}
       state: directory
