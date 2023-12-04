@@ -2,6 +2,17 @@
 - name: Test
   hosts: ruangdev
   tasks:
-    - name: Test var
+    # - name: gather setup
+    #   ansible.builtin.setup:
+    #     gather_subset:
+    #   register: subset
+    # - name: Test var
+    #   ansible.builtin.template:
+    #    src: getDeviceInfo.j2
+    #    dest: info.txt
+    #    mode: "0644"
+    #   register: outj2
+    - name: Debugoutput
       ansible.builtin.debug:
-        msg: "{{ group_names[0] }}"
+        var=hostvars[inventory_hostname]
+      #  msg: "{{ subset }}"

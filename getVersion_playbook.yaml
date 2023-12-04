@@ -26,3 +26,5 @@
       content: "{{ version.stdout | replace('\\n', '\n') }}"
       dest: "/log/{{ group_names[0] }}/{{ inventory_hostname }}/version/{{ inventory_hostname }}{{ lookup('pipe', 'date +%m%d%Y-%H%M') }}.ver"
       mode: "0644"
+   - name: pull nginx image
+   
